@@ -1,0 +1,35 @@
+{
+  "loja": "Hortifruti do João",
+  "frutas": [
+    {
+      "id": 1,
+      "nome": "Maçã",
+      "categoria": "fruta",
+      "preco": 8.90,
+      "unidade": "kg",
+      "estoque": 50,
+      "imagem": "src/assets/maca.jpg",
+      "embedding": [0.7, 0.3, 0.8]
+    },
+    {
+      "id": 2,
+      "nome": "Banana",
+      "categoria": "fruta",
+      "preco": 5.50,
+      "unidade": "kg",
+      "estoque": 80,
+      "imagem": "src/assets/banana.jpg",
+      "embedding": [0.9, 0.1, 0.6]
+    },
+    {
+      "id": 3,
+      "nome": "Laranja",
+      "categoria": "fruta",
+      "preco": 4.20,
+      "unidade": "kg",
+      "estoque": 60,
+      "imagem": "src/assets/laranja.jpg",
+      "embedding": [0.5, 0.8, 0.7]
+    }
+  ]
+}
