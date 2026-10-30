@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel Multimodal | Hortifruti</title>
   <link rel="stylesheet" href="src/css/estilo.css">
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
+
 <body>
+  <script type="py" src="./src/python/main.py"
+    config='{"packages": ["numpy"], "files": {"./src/python/dados.json": "./dados.json"}}'>
+  </script>
   <header class="topo">
     <h1>🍎 Hortifruti do João</h1>
     <p>Painel Multimodal: catálogo, busca e análise vetorial</p>
