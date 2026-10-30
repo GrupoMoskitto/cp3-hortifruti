@@ -12,7 +12,32 @@
     <p>Painel Multimodal: catálogo, busca e análise vetorial</p>
   </header>
 
-  <main class="painel">
+   <main class="painel">
+    <!-- Busca com guardrails -->
+    <section class="card busca">
+      <h2>Buscar fruta</h2>
+      <input type="text" id="entrada-busca" placeholder="Ex: banana">
+      <button id="btn-buscar" py-click="buscar">Buscar</button>
+      <p id="mensagem-guardrail" class="mensagem"></p>
+    </section>
+
+    <!-- Telemetria -->
+    <section class="card telemetria">
+      <h2>Telemetria</h2>
+      <ul id="telemetria"></ul>
+    </section>
+
+    <!-- Embeddings / Norma Euclidiana -->
+    <section class="card vetores">
+      <h2>Análise Vetorial (Norma Euclidiana)</h2>
+      <div id="resultado-vetor"></div>
+    </section>
+
+    <!-- Catálogo -->
+    <section class="card catalogo">
+      <h2>Catálogo</h2>
+      <div id="grade-frutas" class="grade"></div>
+    </section>
   </main>
 
   <footer class="rodape">
