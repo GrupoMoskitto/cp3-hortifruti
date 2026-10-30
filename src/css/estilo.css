@@ -37,3 +37,33 @@ body {
   padding: 1rem;
   color: #78909c;
 }
+
+/* ===== Grid do painel ===== */
+.painel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.catalogo {
+  grid-column: 1 / -1; /* ocupa a linha inteira */
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .painel { grid-template-columns: 1fr 1fr; }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .painel { grid-template-columns: 1fr; padding: 1rem; }
+}
