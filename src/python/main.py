@@ -86,6 +86,7 @@ def buscar(event):
     mostrar_mensagem(f"{fruta['nome']} encontrada!", "ok")
     document.querySelector(f"#fruta-{fruta['id']}").classList.add("destaque")
     registrar(f"Busca: {fruta['nome']}")
+    analisar_vetores(fruta)
 
 # ===== Embeddings: Norma Euclidiana =====
 def analisar_vetores(fruta_base):
