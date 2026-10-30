@@ -1,0 +1,39 @@
+/* ===== Variáveis ===== */
+:root {
+  --verde: #2e7d32;
+  --verde-claro: #a5d6a7;
+  --laranja: #ff9800;
+  --vermelho: #c62828;
+  --fundo: #f4f9f4;
+  --branco: #ffffff;
+  --texto: #263238;
+  --raio: 12px;
+  --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transicao: 0.3s ease;
+}
+
+/* ===== Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+.topo {
+  background: linear-gradient(135deg, var(--verde), var(--laranja));
+  color: var(--branco);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.rodape {
+  text-align: center;
+  padding: 1rem;
+  color: #78909c;
+}
