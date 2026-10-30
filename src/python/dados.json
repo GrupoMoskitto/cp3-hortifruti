@@ -30,6 +30,37 @@
       "estoque": 60,
       "imagem": "src/assets/laranja.jpg",
       "embedding": [0.5, 0.8, 0.7]
+    },
+
+        {
+      "id": 4,
+      "nome": "Morango",
+      "categoria": "fruta",
+      "preco": 12.00,
+      "unidade": "bandeja",
+      "estoque": 30,
+      "imagem": "src/assets/morango.jpg",
+      "embedding": [0.8, 0.5, 0.7]
+    },
+    {
+      "id": 5,
+      "nome": "Abacaxi",
+      "categoria": "fruta",
+      "preco": 7.00,
+      "unidade": "un",
+      "estoque": 25,
+      "imagem": "src/assets/abacaxi.jpg",
+      "embedding": [0.7, 0.7, 0.9]
+    },
+    {
+      "id": 6,
+      "nome": "Limão",
+      "categoria": "fruta",
+      "preco": 3.50,
+      "unidade": "kg",
+      "estoque": 40,
+      "imagem": "src/assets/limao.jpg",
+      "embedding": [0.1, 1.0, 0.6]
     }
   ]
 }
