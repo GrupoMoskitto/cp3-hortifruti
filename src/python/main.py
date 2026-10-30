@@ -1,6 +1,7 @@
 import json
 import unicodedata
 from datetime import datetime
+import numpy as np
 
 from pyscript import document
 
@@ -85,5 +86,27 @@ def buscar(event):
     mostrar_mensagem(f"{fruta['nome']} encontrada!", "ok")
     document.querySelector(f"#fruta-{fruta['id']}").classList.add("destaque")
     registrar(f"Busca: {fruta['nome']}")
+
+# ===== Embeddings: Norma Euclidiana =====
+def analisar_vetores(fruta_base):
+    base = np.array(fruta_base["embedding"])
+    norma = np.linalg.norm(base)  # sqrt(x² + y² + z²)
+
+    html = f"<p><b>{fruta_base['nome']}</b> {base.tolist()} → norma = {norma:.3f}</p>"
+
+    distancias = []
+    for f in frutas:
+        if f["id"] == fruta_base["id"]:
+            continue
+        dist = np.linalg.norm(base - np.array(f["embedding"]))
+        distancias.append((dist, f["nome"]))
+
+    distancias.sort()
+    for dist, nome in distancias:
+        html += f"<p>{nome}: distância {dist:.3f}</p>"
+    html += f"<p>🍓 Mais parecida: <b>{distancias[0][1]}</b></p>"
+
+    document.querySelector("#resultado-vetor").innerHTML = html
+    registrar(f"Norma calculada para {fruta_base['nome']}")
 
     
