@@ -41,3 +41,49 @@ def renderizar_catalogo():
     registrar(f"Catálogo carregado com {len(frutas)} frutas")
 
 renderizar_catalogo()
+
+# ===== Guardrails =====
+def normalizar(texto):
+    """Remove acentos e deixa minúsculo: 'Maçã' -> 'maca'"""
+    sem_acento = unicodedata.normalize("NFD", texto)
+    return "".join(c for c in sem_acento if unicodedata.category(c) != "Mn").lower().strip()
+
+def validar_entrada(texto):
+    if not texto.strip():
+        return "Digite o nome de uma fruta."
+    if len(texto) > 30:
+        return "Busca muito longa (máx. 30 caracteres)."
+    if not texto.replace(" ", "").isalpha():
+        return "Use apenas letras."
+    return None  # entrada válida
+
+def mostrar_mensagem(texto, tipo):
+    msg = document.querySelector("#mensagem-guardrail")
+    msg.innerText = texto
+    msg.className = f"mensagem {tipo}"
+
+def buscar(event):
+    entrada = document.querySelector("#entrada-busca").value
+
+    erro = validar_entrada(entrada)
+    if erro:
+        mostrar_mensagem(erro, "erro")
+        registrar(f"Guardrail bloqueou: '{entrada}'")
+        return
+
+    for card in document.querySelectorAll(".card-fruta"):
+        card.classList.remove("destaque")
+
+    termo = normalizar(entrada)
+    fruta = next((f for f in frutas if normalizar(f["nome"]) == termo), None)
+
+    if fruta is None:
+        mostrar_mensagem("Fruta não encontrada no catálogo.", "erro")
+        registrar(f"Busca sem resultado: '{entrada}'")
+        return
+
+    mostrar_mensagem(f"{fruta['nome']} encontrada!", "ok")
+    document.querySelector(f"#fruta-{fruta['id']}").classList.add("destaque")
+    registrar(f"Busca: {fruta['nome']}")
+
+    
